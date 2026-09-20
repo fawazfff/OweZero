@@ -1,5 +1,21 @@
 # OweZero
 
+OweZero is the human-first shared-expense app. Create a group for a trip, home, dinner, event, couple or team; add exactly who shared each expense; see live balances; and settle the group in the fewest possible payments.
+
+## Product flow
+
+- Multi-step group creation with group type, currency and members
+- Real expense tracking with custom participants
+- Transparent per-person balances
+- Minimum-transfer settlement algorithm
+- Mark-paid progress and copyable settlement plan
+- Persistent browser storage for an instant, account-free demo
+- AI-powered messy-message analyzer on the landing page
+
+## Demo
+
+Open `/groups/demo` for a complete Lisbon weekend example, or create a fresh group at `/create`.
+
 **Paste the chaos. Settle the math.**
 
 OweZero turns informal group-expense messages into a transparent settlement plan with the fewest necessary payments.

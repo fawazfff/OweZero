@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 
 type Person = { name: string; paid: number; share: number; balance: number };
 type Settlement = { from: string; to: string; amount: number };
@@ -99,8 +100,8 @@ export default function Home() {
     <main id="top">
       <nav className="nav shell">
         <Logo />
-        <div className="nav-links"><a href="#how">How it works</a><a href="#use-cases">Use cases</a><a href="#why">Why OweZero</a></div>
-        <button className="nav-cta" onClick={loadDemo}>Try the demo</button>
+        <div className="nav-links"><Link href="/groups">My groups</Link><Link href="/how-it-works">How it works</Link><a href="#use-cases">Use cases</a><Link href="/help">Help</Link></div>
+        <Link className="nav-cta" href="/groups/demo">Try the demo</Link>
       </nav>
 
       <section className="hero shell">
@@ -108,8 +109,8 @@ export default function Home() {
         <h1>Paste the chaos.<br /><span>Settle the math.</span></h1>
         <p className="hero-copy">OweZero turns messy expense messages into one fair, simple settlement plan. No spreadsheets. No awkward calculations.</p>
         <div className="hero-actions">
-          <button className="primary" onClick={loadDemo}>Untangle expenses <span>→</span></button>
-          <a className="secondary" href="#how"><span className="play">▶</span> See how it works</a>
+          <Link className="primary" href="/create">Start a group <span>→</span></Link>
+          <Link className="secondary" href="/groups/demo"><span className="play">▶</span> Explore live demo</Link>
         </div>
 
         <div className="hero-stage">
@@ -174,7 +175,7 @@ export default function Home() {
 
       <section id="why" className="privacy shell reveal"><div><span className="step">BUILT FOR TRUST</span><h2>The math should be smart.<br /><em>The result should be obvious.</em></h2><p>OweZero shows every assumption, every share and every final transfer. AI organizes the story; transparent math settles it.</p></div><div className="privacy-grid"><div><strong>01</strong><h3>No account needed</h3><p>Open it, calculate and share.</p></div><div><strong>02</strong><h3>Explainable results</h3><p>See how every number was reached.</p></div><div><strong>03</strong><h3>No money held</h3><p>OweZero calculates—it never touches your funds.</p></div></div></section>
 
-      <section className="final-cta shell reveal"><span className="brand-mark large">0</span><h2>Your group chat already<br />has the expenses.</h2><p>Let OweZero do the uncomfortable part.</p><button className="primary" onClick={loadDemo}>Turn chaos into zero →</button></section>
+      <section className="final-cta shell reveal"><span className="brand-mark large">0</span><h2>Your group chat already<br />has the expenses.</h2><p>Let OweZero do the uncomfortable part.</p><Link className="primary" href="/create">Turn chaos into zero →</Link></section>
 
       <footer className="footer shell"><Logo /><p>Fair splits. Fewer payments. Better friendships.</p><div><a href="#how">How it works</a><a href="#use-cases">Use cases</a><a href="https://github.com/fawazfff/OweZero" target="_blank" rel="noreferrer">GitHub</a></div><small>Built for BUILD//ANYTHING 2026</small></footer>
     </main>
