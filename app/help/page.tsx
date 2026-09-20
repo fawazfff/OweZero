@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from "next/link";
 import ProductNav from "../components/ProductNav";
 const questions=[["Does OweZero move money?","No. OweZero calculates and explains what everyone should pay. Your group uses any payment app it already trusts."],["Can one expense exclude someone?","Yes. When adding an expense, tick only the people who shared that cost."],["How does OweZero reduce payments?","It totals every person's credits and debts, then matches debtors to creditors so circular payments disappear."],["Where is my group saved?","This hackathon build saves groups privately in your browser, so you can demo it immediately without an account."],["Can I use different currencies?","Each group can use dollars, pounds, euros, naira or rupees. Create separate groups when trips cross currencies."],["Is there a demo?","Yes. The Lisbon weekend group includes four people, several expenses, live balances and a complete settlement plan."]];

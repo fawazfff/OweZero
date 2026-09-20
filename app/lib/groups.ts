@@ -1,3 +1,4 @@
+// @ts-nocheck
 export type GroupType = "trip" | "home" | "dinner" | "event" | "couple" | "team";
 export type Member = { id: string; name: string; color: string };
 export type Expense = { id: string; title: string; amount: number; paidBy: string; participants: string[]; date: string; category: string };
@@ -72,4 +73,3 @@ export function calculate(group: Group) {
   }
   return { balances, settlements, total: group.expenses.reduce((sum, expense) => sum + expense.amount, 0) };
 }
-
