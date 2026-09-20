@@ -10,9 +10,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fawazfff/OweZero@a388c9981890bfc68cef898edae52a73ab3fcdb7/app/globals.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fawazfff/OweZero@edbbc6adffcfab7cf357af1e6b295bce5181d18b/app/globals.css" />
       </head>
       <body>{children}</body>
     </html>
   );
 }
+
