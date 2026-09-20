@@ -6,7 +6,7 @@ OweZero turns informal group-expense messages into a transparent settlement plan
 
 ## Why it exists
 
-Group expenses rarely begin in spreadsheets. They begin in messages: â€œI covered dinner,â€ â€œDavid didnâ€™t eat,â€ or â€œJosh already paid me back.â€ OweZero understands that human context, calculates each personâ€™s fair share, and explains the shortest route back to zero.
+Group expenses rarely begin in spreadsheets. They begin in messages: “I covered dinner,” “David didn’t eat,” or “Josh already paid me back.” OweZero understands that human context, calculates each person’s fair share, and explains the shortest route back to zero.
 
 ## Features
 
