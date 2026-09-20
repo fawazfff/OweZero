@@ -54,11 +54,19 @@ export function getGroup(id: string) { return readGroups().find((group) => group
 
 export function calculate(group: Group) {
   const balances: Record<string, number> = Object.fromEntries(group.members.map((member) => [member.id, 0]));
+  const paid: Record<string, number> = Object.fromEntries(group.members.map((member) => [member.id, 0]));
+  const share: Record<string, number> = Object.fromEntries(group.members.map((member) => [member.id, 0]));
+
   group.expenses.forEach((expense) => {
+    paid[expense.paidBy] = (paid[expense.paidBy] || 0) + expense.amount;
     balances[expense.paidBy] = (balances[expense.paidBy] || 0) + expense.amount;
-    const share = expense.amount / Math.max(1, expense.participants.length);
-    expense.participants.forEach((id) => { balances[id] = (balances[id] || 0) - share; });
+    const split = expense.amount / Math.max(1, expense.participants.length);
+    expense.participants.forEach((id) => {
+      share[id] = (share[id] || 0) + split;
+      balances[id] = (balances[id] || 0) - split;
+    });
   });
+
   const debtors = Object.entries(balances).filter(([, value]) => value < -0.005).map(([id, value]) => ({ id, amount: -value })).sort((a,b) => b.amount-a.amount);
   const creditors = Object.entries(balances).filter(([, value]) => value > 0.005).map(([id, value]) => ({ id, amount: value })).sort((a,b) => b.amount-a.amount);
   const settlements: { id: string; from: string; to: string; amount: number }[] = [];
@@ -71,5 +79,19 @@ export function calculate(group: Group) {
     if (debtors[d].amount < .005) d++;
     if (creditors[c].amount < .005) c++;
   }
-  return { balances, settlements, total: group.expenses.reduce((sum, expense) => sum + expense.amount, 0) };
+
+  const memberStats = Object.fromEntries(group.members.map((member) => [member.id, {
+    paid: Math.round((paid[member.id] || 0) * 100) / 100,
+    share: Math.round((share[member.id] || 0) * 100) / 100,
+    balance: Math.round((balances[member.id] || 0) * 100) / 100
+  }]));
+
+  return {
+    balances,
+    paid,
+    share,
+    memberStats,
+    settlements,
+    total: group.expenses.reduce((sum, expense) => sum + expense.amount, 0)
+  };
 }
